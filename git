@@ -1,5 +1,1 @@
-#!/usr/bin/sh
-
-cp -f ./exclude ./.git/info/exclude
-git --work-tree $HOME "$@"
-
+../izzatnasrun/git
