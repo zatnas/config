@@ -11,13 +11,18 @@
 !exclude
 
 !.config/
-!.config/*
+!.config/
 !.config/bash/
 !.config/bash/*
 !.config/sxhkd/
 !.config/sxhkd/*
 !.config/vim/
 !.config/vim/**
+.config/vim/.netrwhist
+.config/vim/undodir/*
+.config/vim/plugged/*
+.config/vim/autotags/*
+.config/vim/autoload/*
 !.config/shell_alias/
 !.config/shell_alias/*
 !.config/shell_function/
