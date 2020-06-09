@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+echo "" >> /etc/bash.bashrc
+echo "# User edited" >> /etc/bash.bashrc
+echo "[ -s "$XDG_CONFIG_HOME/bash/bashrc" ] && . "$XDG_CONFIG_HOME/bash/bashrc" >> /etc/bash.bashrc
