@@ -1,0 +1,136 @@
+"  vim: nolist: nowrap: ts=11:
+
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
+Plug 'ledger/vim-ledger', { 'for': 'ledger' }
+Plug 'vim-syntastic/syntastic', { 'for': 'sh' }
+Plug 'universal-ctags/ctags', { 'for': 'java' }
+Plug 'davisdude/vim-love-docs'
+Plug 'lifepillar/vim-solarized8'
+call plug#end()
+
+set encoding=utf-8
+
+" Colouring & theme
+let g:solarized_termtrans=1
+colorscheme solarized8_low
+
+set incsearch
+set modeline
+
+" Folding
+set foldmethod=indent
+set foldlevelstart=999
+set foldnestmax=2
+
+" Invisible chars
+set showbreak=>\ |
+"set listchars=trail:⋅ ",tab:\|\ 
+"set nolist
+
+" Indentation
+set expandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+" Statusline
+set ruler
+set showcmd
+set hidden
+set laststatus=2
+"set statusline=%<%(W%{winnr()}B%n%)\ %f\ %([%H%M%R]%)%=%-14.(%l,%c%V%)\ %P
+ 
+" Splitting
+set splitbelow
+set splitright
+
+" Persistent undo
+set undofile
+
+" Wildmenu
+set wildmenu
+set path+=**
+
+set display=lastline
+set linebreak
+
+set scrolloff=5
+
+set backspace=indent,eol,start
+
+set confirm
+set autoread
+set noswapfile
+
+" nnoremap <C-Z> <NOP>
+nnoremap <C-T> <NOP>
+nnoremap s ge
+nnoremap S gE
+
+nnoremap <C-K> zk
+nnoremap <C-J> zj
+
+nnoremap <F9> :write<CR>:make %<CR>
+inoremap <F9> <ESC>:write<CR>:make %<CR>
+
+inoremap <C-Up> <C-P>
+inoremap <C-Down> <C-N>
+
+" nnoremap <silent> / :set<SPACE>hlsearch<CR>/
+inoremap <C-S> <ESC>:w<CR>
+nnoremap <C-S> :w<CR>
+
+cabbrev q confirm quit
+cabbrev wq w <BAR> confirm quit
+
+vnoremap s <NOP>
+vnoremap S <NOP>
+
+vnoremap s( c(<C-R>")
+vnoremap s[ c[<C-R>"]
+vnoremap s{ c{<C-R>"}
+vnoremap s' c'<C-R>"'
+vnoremap s" c"<C-R>""
+vnoremap s` c`<C-R>"`
+vmap s) s(
+vmap s[ s]
+vmap s} s{
+
+vnoremap S( c(<C-R>")<ESC>
+vnoremap S[ c[<C-R>"]<ESC>
+vnoremap S{ c{<C-R>"}<ESC>
+vnoremap S' c'<C-R>"'<ESC>
+vnoremap S" c"<C-R>""<ESC>
+vnoremap S` c`<C-R>"`<ESC>
+vmap S) S(
+vmap S[ S]
+vmap S} S{
+
+nnoremap [<64;58;22M <C-Y>
+nnoremap [<65;58;22M <C-E>
+
+filetype plugin indent on
+syntax enable
+
+augroup ledger " {
+  autocmd!
+  autocmd FileType ledger noremap <silent> } /^\d<CR>
+  autocmd FileType ledger noremap <silent> { ?^\d<CR>
+  autocmd FileType ledger
+    \ autocmd BufWrite <buffer> :normal mlgg/^\dVG:'<,'>LedgerAlign'l
+augroup END " }
+
+augroup love " {
+    autocmd!
+    autocmd FileType love set filetype=lua
+    autocmd FileType love nnoremap <F9> :w<CR>:!love .<CR><CR>
+    autocmd FileType love nnoremap <F10> :w<CR>:!love .<CR><CR>
+augroup END " }

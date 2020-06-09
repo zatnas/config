@@ -1,0 +1,9 @@
+#!/bin/sh
+
+vimf() {
+    if command -v fzf >/dev/null 2>&1; then
+        vim "$@" "$(fzf)"
+    else
+        vim "$@"
+    fi
+}

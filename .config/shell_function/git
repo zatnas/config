@@ -1,0 +1,19 @@
+#!/bin/sh
+
+git() {
+    SCRIPTDIR=$XDG_CONFIG_HOME"/shell_script/git-fuzzy"
+
+    if [ "$1" = "fuzzy" ]; then
+        OLDPATH=$PATH
+        shift
+        export PATH="$SCRIPTDIR/bin:$PATH"
+        command git fuzzy "$@"
+        export PATH=$OLDPATH
+        echo ""
+    else
+        command git "$@"
+        echo ""
+    fi
+
+    unset SCRIPTDIR
+}

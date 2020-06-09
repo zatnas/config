@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ntpdate() {
+	if ! command ntpdate "$@"; then return 0; fi
+
+	if command ntpdate "$@" 2>&1 | grep -q "Permission denied"; then
+		printf "%s\n" "$(tput smso)$(tput setaf 1)sudo: privilege escalation required$(tput sgr0)"
+		sudo "ntpdate" "$@"
+	fi
+}

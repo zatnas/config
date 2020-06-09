@@ -1,0 +1,10 @@
+#!/bin/sh
+
+vima() {
+    cmd="vim "
+    for i in "$@"; do
+        cmd=$cmd"**/*.$i "
+    done
+    eval "$cmd"
+    unset cmd
+}

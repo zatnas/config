@@ -1,0 +1,10 @@
+#!/bin/sh
+
+pacman() {
+	if command pacman "$@"; then return 0; fi
+
+	if command pacman "$@" 2>&1 | grep -qP ".*error.*root"; then
+		printf "%s\n" "$(tput smso)$(tput setaf 1)sudo: privilege escalation required$(tput sgr0)"
+		sudo "pacman" "$@"
+	fi
+}

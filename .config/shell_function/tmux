@@ -1,0 +1,36 @@
+#!/bin/sh
+
+tmux() {
+	HOMECONF="$XDG_CONFIG_HOME"/tmux/tmux.conf
+	ETCCONF=""/etc/tmux.conf
+
+	[ ! -f "$HOMECONF" ] && \
+		HOMECONF=""
+	
+	[ ! -f "$ETCCONF" ] && \
+		ETCCONF=""
+
+    while [ "$1" ]; do
+        case "$1" in
+            -f ) 
+				CONF="$1" ;;
+            * ) 
+				COMMAND=$COMMAND" $1" ;;
+        esac
+		shift
+    done
+
+	[ -z "$CONF" ] && \
+		CONF="$HOMECONF"
+
+	[ -z "$CONF" ] && \
+		CONF="$ETCCONF"
+
+	[ -z "$CONF" ] && \
+		eval "command tmux $COMMAND"
+
+	[ "$CONF" ] && \
+		eval "command tmux -f $CONF $COMMAND"
+
+	unset CONF HOMECONF ETCCONF COMMAND
+}

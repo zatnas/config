@@ -1,0 +1,12 @@
+#!/bin/sh
+
+bluetoothctl() {
+  STATUS="$(systemctl --full --no-pager status bluetooth | grep "^[[:space:]]*Active:" | grep "inactive")"
+
+  if [ "$STATUS" ]; then
+    systemctl start bluetooth
+  fi
+
+  command bluetoothctl "$@"
+  unset STATUS
+}

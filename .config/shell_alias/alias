@@ -1,0 +1,12 @@
+# vim: ft=sh
+
+alias less='less -r'
+alias ls='ls --group-directories-first --color=always'
+alias ledger='ledger --input-date-format "%d/%m/%Y"'
+alias lsd='ls -d */'
+alias ip='ip -c'
+alias ip4='ip -c -4'
+alias dhclient='dhclient -v'
+alias g='git'
+alias grep='grep --color=always'
+alias ydl='youtube-dl'

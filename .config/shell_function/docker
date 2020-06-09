@@ -1,0 +1,12 @@
+#!/bin/sh
+
+docker() {
+  STATUS="$(systemctl --full --no-pager status docker | grep "^[[:space:]]*Active:" | grep "inactive")"
+
+  if [ "$STATUS" ]; then
+    systemctl start docker
+  fi
+
+  command docker "$@"
+  unset STATUS
+}

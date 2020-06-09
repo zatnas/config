@@ -1,0 +1,76 @@
+# Restart sxhkd
+super + Escape
+	pkill sxhkd; \
+	sh -c "nohup sxhkd >/dev/null 2>&1 &"
+
+# terminal emulator
+super + shift + Return
+	termite
+
+# program launcher
+super + d
+	dmenu_run
+
+super + {_,shift +} m
+	sh $XDG_HOME_CONFIG/scripts/{_,un}mounter
+
+# Brightness
+#XF86MonBrightness{Down,Up}
+#	sh ~/.config/xsetroot_script/rootname_{dec,inc}brightness.sh; \
+#	sh ~/.config/xsetroot_script/xsetroot_update.sh
+#
+#super + XF86Audio{LowerVolume,RaiseVolume}
+#	sh ~/.config/xsetroot_script/rootname_{dec,inc}brightness.sh; \
+#	sh ~/.config/xsetroot_script/xsetroot_update.sh
+#
+#XF86Audio{Mute,LowerVolume,RaiseVolume}
+#	sh ~/.config/xsetroot_script/rootname_{mute,dec,inc}volume.sh; \
+#	sh ~/.config/xsetroot_script/xsetroot_update.sh
+
+Print
+	import -quality 100 -window root \
+    	"$HOME/Pictures/screenshot$(date +%y%m%d%H%M%S%N).jpg"	
+
+
+# dwm
+super + Return
+	dwmc zoom
+
+super + {_,shift +} b
+	dwmc toggle{_,e}bar
+
+super + s
+	dwmc togglefakefullscreen
+
+super + Tab
+	dwmc view
+
+super + shift + space
+	dwmc togglefloating
+
+super + n
+	dwmc toggleborder
+
+super + {j,k}
+	dwmc focusstack {-,+}1
+
+super + shift + {j,k}
+	dwmc movestack {-,+}1
+
+super + {_,ctrl +} {_,shift +} {1-9}
+	dwmc {_,toggle}{viewex,tagex} {0-8}
+
+super + 0
+	dwmc viewall
+
+super + bracket{left,right}
+	dwmc incgappx {-,+}1
+
+super + shift + q
+	dwmc killclient
+
+super + {h,l}
+	dwmc setmfact {-,+}0.05
+
+super + shift + x
+	dwmc quit
