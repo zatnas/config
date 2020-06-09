@@ -1,3 +1,4 @@
 #!/usr/bin/sh
 
+cp ./exclude ./.git/info/exclude
 git --work-tree $HOME "$@"
