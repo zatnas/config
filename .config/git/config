@@ -1,0 +1,13 @@
+[alias]
+	f = fetch
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	m = merge
+
+[core]
+    pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+
+[interactive]
+    diffFilter = delta --color-only
