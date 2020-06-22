@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 
 cp -f ./exclude ./.git/info/exclude
-git --work-tree $HOME "$@"
+git --git-dir ./config --work-tree $HOME "$@"
