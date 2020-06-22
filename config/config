@@ -2,3 +2,6 @@
 	repositoryformatversion = 0
 	filemode = true
 	bare = true
+[submodule "/home/izzatnasrun/.config/shell_script/git-fuzzy"]
+	url = https://github.com/bigH/git-fuzzy.git
+	active = true

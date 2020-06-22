@@ -1,0 +1,41 @@
+init
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   ../../.config/bash/bashrc
+#	new file:   ../../.config/shell_alias/alias
+#	new file:   ../../.config/shell_function/bluetoothctl
+#	new file:   ../../.config/shell_function/dhclient
+#	new file:   ../../.config/shell_function/docker
+#	new file:   ../../.config/shell_function/git
+#	new file:   ../../.config/shell_function/ip
+#	new file:   ../../.config/shell_function/ls
+#	new file:   ../../.config/shell_function/main
+#	new file:   ../../.config/shell_function/ntpdate
+#	new file:   ../../.config/shell_function/pacman
+#	new file:   ../../.config/shell_function/tmux
+#	new file:   ../../.config/shell_function/vima
+#	new file:   ../../.config/shell_function/vimf
+#	new file:   ../../.config/shell_script/git-fuzzy
+#	new file:   ../../.config/sxhkd/sxhkdrc
+#	new file:   ../../.config/vim/after/ftplugin/java.vim
+#	new file:   ../../.config/vim/after/ftplugin/javascript.vim
+#	new file:   ../../.config/vim/after/ftplugin/markdown.vim
+#	new file:   ../../.config/vim/after/ftplugin/plaintex.vim
+#	new file:   ../../.config/vim/after/ftplugin/sh.vim
+#	new file:   ../../.config/vim/colors/monokai.vim
+#	new file:   ../../.config/vim/indent/html.vim
+#	new file:   ../../.config/vim/indent/java.vim
+#	new file:   ../../.config/vim/indent/lua.vim
+#	new file:   ../../.config/vim/sessions/Session.vim
+#	new file:   ../../.config/vim/sessions/X.vim
+#	new file:   ../../.config/vim/vimrc
+#	new file:   ../../.gitmodules
+#	new file:   ../../.profile
+#	new file:   ../../.xinitrc
+#
